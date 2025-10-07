@@ -101,3 +101,58 @@ Toolchain awareness and application scenarios
 
 Professional standards in ethical hacking
 
+(Day 2: 2025/10/08)
+
+📁 Burp Suite: Repeater - TryHackMe
+
+🔧 Technical Skills Acquired:
+
+Repeater Tool Mastery
+
+Request/Response workflow between Proxy and Repeater modules
+
+HTTP request modification and repeated sending techniques
+
+Real-time analysis of server responses and error handling
+
+SQL Injection Testing
+
+Manual SQL injection payload crafting and testing
+
+Error-based SQL detection through server response analysis
+
+Parameter manipulation for vulnerability identification
+
+Syntax validation for different SQL injection techniques
+
+Web Application Analysis
+
+HTTP status code interpretation (200, 500, 404)
+
+Server error analysis and vulnerability correlation
+
+Input validation testing through parameter manipulation
+
+Response comparison for vulnerability detection
+
+Security Testing Methodology
+
+Controlled payload experimentation workflows
+
+Manual fuzzing techniques for vulnerability discovery
+
+Application behavior analysis through request manipulation
+
+Exploit development and refinement processes
+
+🛠️ Technical Competencies:
+
+Advanced Burp Suite Repeater operation
+
+Manual web application penetration testing
+
+SQL injection detection and exploitation
+
+HTTP protocol manipulation and analysis
+
+Security vulnerability validation techniques
