@@ -3,7 +3,7 @@
 
 📁 Introduction to Pentesting - TryHackMe
 
-🔧 Technical Skill Acquired:
+🔧 Technical Skills Acquired:
 
 Pentesting Methodology
 
@@ -40,6 +40,60 @@ Continuous learning and methodology improvement
 🛠️ Technical Competencies:
 
 Security assessment methodology understanding
+
+📁 Introduction to Pentesting - TryHackMe
+
+🔧 Technical Skills Acquired:
+
+Pentesting Methodologies
+
+Black box, white box, and gray box testing approaches
+
+Complete penetration testing lifecycle understanding
+
+Methodology selection based on testing objectives
+
+Legal and Ethical Framework
+
+Written authorization requirements and scope definition
+
+Rules of engagement and operational boundaries
+
+Professional ethics in security testing
+
+Testing Environments
+
+Internal network penetration testing approaches
+
+External infrastructure assessment methodologies
+
+Web application security testing techniques
+
+Tool Proficiency Awareness
+
+Internal network tools: BloodHound, Responder, CrackMapExec
+
+External reconnaissance: Nmap, theHarvester, Shodan
+
+Web application testing: Burp Suite, OWASP ZAP, SQLmap
+
+Professional Practices
+
+Client communication and expectation management
+
+Documentation standards and reporting frameworks
+
+Continuous methodology improvement
+
+🛠️ Technical Competencies:
+
+Security assessment methodology application
+
+Legal and ethical compliance in testing
+
+Environment-specific tool selection
+
+Professional security testing standards
 
 Testing approach selection based on context
 
