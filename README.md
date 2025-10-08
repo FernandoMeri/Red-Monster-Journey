@@ -346,3 +346,62 @@ Client-side security assessment
 Developer tools operation for security testing
 
 Source code examination techniques
+
+# Content Discovery - TryHackMe Module
+
+## 📖 Description
+This repository documents my learning and techniques from TryHackMe's Content Discovery module, focused on methods for discovering hidden content in web applications.
+
+## 🎯 Techniques Implemented
+
+### 🔍 Manual Discovery
+- **Robots.txt Analysis**: Identification of restricted directories
+- **Favicon Fingerprinting**: Detection of frameworks using favicons
+- **Sitemap.xml Examination**: Mapping of public content
+- **HTTP Headers Inspection**: Analysis of software and versions
+
+### 🌐 OSINT Techniques
+- **Google Dorking**: 
+```bash
+  site:example.com admin
+  filetype:pdf site:example.com
+  inurl:admin site:example.com
+Wappalyzer: Identification of web technologies
+
+Wayback Machine: Historical analysis of sites
+
+GitHub Recon: Search for source code and configurations
+
+S3 Buckets Discovery: Detection of exposed cloud storage
+
+⚡ Automation
+Tool Usage: ffuf, dirb, gobuster
+
+Wordlists Management: SecLists integration
+
+Fuzzing Techniques: Directory and file discovery
+
+🛠️ Tools Used
+ffuf - Fast web fuzzer
+
+dirb - Directory scanner
+
+gobuster - Discovery tool
+
+curl - HTTP header analysis
+
+Browser + DevTools - Manual analysis
+
+📁 Project Structure
+text
+content-discovery/
+├── techniques/
+│   ├── manual-discovery.md
+│   ├── osint-methods.md
+│   └── automated-tools.md
+├── examples/
+│   ├── google-dorking-examples.txt
+│   └── wordlists-usage.md
+└── resources/
+    └── helpful-links.md
+
