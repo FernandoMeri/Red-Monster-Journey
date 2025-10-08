@@ -405,3 +405,62 @@ content-discovery/
 └── resources/
     └── helpful-links.md
 
+### 🎯 CURRENT PHASE: ADVANCED RECONNAISSANCE
+**Module: Subdomain Enumeration - Operational Implementation**
+
+### 🔴 SUBDOMAIN ENUMERATION TRADECRAFT
+
+#### 📊 OPERATIONAL OBJECTIVES
+- **Attack Surface Expansion**: Discover hidden infrastructure and shadow IT
+- **Passive Intelligence**: Gather subdomain data without triggering alerts
+- **Infrastructure Mapping**: Identify development, admin, and legacy systems
+- **Initial Access Vector Identification**: Locate vulnerable entry points
+
+#### 🎲 TACTICS, TECHNIQUES & PROCEDURES (TTPs)
+
+##### PASSIVE ENUMERATION (STEALTH)
+- **Certificate Transparency Logs**: 
+  ```bash
+  crt.sh analysis for historical and current subdomains
+Search Engine Recon:
+
+bash
+site:*.target.com -site:www.target.com -site:blog.target.com
+OSINT Automation: Sublist3r for multi-source intelligence gathering
+
+ACTIVE ENUMERATION (CALCULATED RISK)
+DNS Bruteforce:
+
+bash
+dnsrecon -d target.com -D wordlist.txt -t brt
+Virtual Host Discovery:
+
+bash
+ffuf -w vhosts.txt -u http://target.com -H "Host: FUZZ.target.com"
+📈 ENGAGEMENT FINDINGS TEMPLATE
+text
+TARGET: [REDACTED]
+DATE: [OPERATIONAL TIMESTAMP]
+TECHNIQUE: SSL_CERT_ANALYSIS | VIRTUAL_HOST | DNS_BRUTEFORCE
+SUBDOMMAIN: [DISCOVERED_ASSET]
+RISK_LEVEL: HIGH/MEDIUM/LOW
+OPERATIONAL_VALUE: [POTENTIAL_ACCESS_VECTOR]
+NOTES: [RECOMMENDED_NEXT_STEPS]
+🚀 PROGRESSION IN RED TEAM KILL CHAIN
+✅ Reconnaissance ← ENHANCED SUBDOMAIN MAPPING
+✅ Weaponization
+◽ Delivery
+◽ Exploitation
+◽ Installation
+◽ C2 & Persistence
+◽ Actions & Objectives
+
+🔧 TOOLS & TRADECRAFT DOCUMENTED
+Passive: crt.sh, Google Dorking, Sublist3r
+
+Active: DNS bruteforce (calculated risk)
+
+Stealth: Virtual host enumeration
+
+Analysis: Subdomain categorization and prioritization
+
