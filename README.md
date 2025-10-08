@@ -298,3 +298,51 @@ Security tool customization and optimization
 Extension evaluation and implementation
 
 Workflow automation through BApps
+
+📁  Web Application Fundamentals - TryHackMe
+
+🔧 Techincal Skills Acquired:
+
+Web Architecture Understanding
+
+Client-server model in modern web applications
+
+Frontend vs backend component differentiation
+
+HTTP/HTTPS communication flow analysis
+
+Developer Tools Proficiency
+
+Firefox Developer Tools navigation (Inspector, Console, Debugger)
+
+HTML, CSS, and JavaScript source code analysis
+
+Debugger utilization for file analysis and code execution
+
+Client-Side Code Analysis
+
+Exposed credentials and token identification in frontend code
+
+Client-side business logic detection and analysis
+
+Insecure client-side validation identification
+
+Information disclosure vulnerability detection
+
+Security Assessment Methodology
+
+Systematic approach to web application examination
+
+Attack vector identification through source code analysis
+
+Web-specific information gathering techniques
+
+🛠️ Technical Competencies:
+
+Web application architecture analysis
+
+Client-side security assessment
+
+Developer tools operation for security testing
+
+Source code examination techniques
