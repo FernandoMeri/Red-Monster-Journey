@@ -541,3 +541,96 @@ Cookie Privilege Escalation: Plaintext admin flags in session cookies
 Account Lockout Bypass: Parallel authentication attempts
 
 OPERATIONAL NOTES: Authentication bypass techniques provide immediate initial access while maintaining low detection probability. Cookie manipulation proved particularly effective for privilege escalation post-initial compromise.
+
+# Red Monster Journey 🐲 
+## Active Red Team Operations Log
+
+### 🎯 CURRENT PHASE: DATA ACCESS & PRIVILEGE ESCALATION
+**Module: IDOR Exploitation - Operational Implementation**
+
+### 🔴 IDOR EXPLOITATION TRADECRAFT
+
+#### 📊 OPERATIONAL OBJECTIVES
+- **Unauthorized Data Access**: Bypass access controls for horizontal/vertical movement
+- **Intelligence Gathering**: Extract sensitive information through object reference manipulation
+- **Privilege Boundary Testing**: Identify access control flaws in application logic
+- **Mass Extraction Capability**: Develop scripts for large-scale data exfiltration
+
+#### 🎲 TACTICS, TECHNIQUES & PROCEDURES (TTPs)
+
+##### ENDPOINT DISCOVERY & MAPPING
+- **Surface Enumeration**:
+  ```bash
+  API endpoints: /api/user/{id}/profile, /download?file_id={id}
+  Hidden endpoints: AJAX calls, JavaScript analysis
+  Development artifacts: debug parameters, test endpoints
+Parameter Identification:
+
+bash
+user_id, account_id, file_id, invoice_id, document_id
+Numeric, encoded, hashed identifiers
+ID ANALYSIS & MANIPULATION
+Encoded ID Exploitation:
+
+bash
+Base64: echo "dXNlcjE=" | base64 -d → user1
+Base32, URL encoding detection and manipulation
+Hashed ID Reverse Engineering:
+
+bash
+Pattern analysis: md5(1), md5(2), md5(3) sequences
+Hash generation for prediction: echo -n "123" | md5sum
+Unpredictable ID Methodology:
+
+bash
+Two-account approach: Account A (ID 100) vs Account B (ID 200)
+ID swapping: Access Account B data while authenticated as Account A
+EXPLOITATION TECHNIQUES
+Horizontal Privilege Escalation:
+
+bash
+User A accesses User B data: /api/invoices?user_id=200
+Mass data extraction scripts
+Vertical Privilege Escalation:
+
+bash
+User accesses admin functions: /admin/users?admin_id=1
+Parameter manipulation for elevated access
+📈 ENGAGEMENT FINDINGS TEMPLATE
+text
+TARGET: [REDACTED]
+DATE: [OPERATIONAL TIMESTAMP]
+TECHNIQUE: ENCODED_ID | HASHED_ID | UNPREDICTABLE_ID
+VULNERABILITY: [SPECIFIC_ACCESS_CONTROL_FAILURE]
+ACCESS_LEVEL: HORIZONTAL | VERTICAL | DATA_ONLY
+DATA_EXFILTRATED: [ESTIMATED_VOLUME]
+IMPACT: CRITICAL | HIGH | MEDIUM
+NOTES: [EXFILTRATION_RECOMMENDATIONS]
+🚀 PROGRESSION IN RED TEAM KILL CHAIN
+✅ Reconnaissance
+✅ Weaponization
+✅ Delivery
+✅ Exploitation
+✅ Installation
+◽ C2 & Persistence
+◽ Actions & Objectives
+
+🔧 TOOLS & TRADECRAFT DOCUMENTED
+Discovery: Endpoint mapping, parameter analysis
+
+Analysis: Encoding/decoding, hash pattern recognition
+
+Exploitation: Horizontal/vertical privilege escalation
+
+Exfiltration: Script development for mass data extraction
+
+🎯 CRITICAL DISCOVERIES
+Base64 ID Manipulation: Direct object reference through encoded parameters
+
+Predictable Hash Sequences: MD5-based IDs following numeric patterns
+
+Horizontal Access Flaws: User-to-user data access without validation
+
+Admin Function Exposure: Administrative endpoints accessible via ID manipulation
+
+OPERATIONAL NOTES: IDOR vulnerabilities provide direct data access with minimal detection risk. Encoded parameters proved most common, while hashed IDs required more advanced pattern analysis. Two-account methodology essential for unpredictable identifiers.
