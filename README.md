@@ -2772,3 +2772,72 @@ Technical Execution: PROFICIENT (Minimal errors, efficient workflow)
 ✅ Integrated Practical Challenge ← NET SEC CHALLENGE COMPLETED
 
 OPERATIONAL AFTER-ACTION: This challenge served as comprehensive validation of network security skills in practical scenarios. Success required adaptive thinking, proper tool selection, and effective technique application under realistic constraints. The integration of covert scanning, service exploitation, and credential attacks mirrors real-world Red Team engagements where multiple techniques must be chained for successful compromise.
+
+(Day 6: 2025/10/12)
+
+# Red Monster Journey 🐲 
+## Vulnerabilities 101
+
+# Red Team Vulnerability Research Framework
+
+## Overview
+Quick reference guide and tools for efficient vulnerability research during Red Team operations.
+
+## Key Concepts
+- **CVSS (Common Vulnerability Scoring System):** Technical exploitability assessment
+- **VPR (Vulnerability Priority Rating):** Organizational risk-focused scoring  
+- **CVE Format:** CVE-YEAR-IDNUMBER
+- **Exploit Databases:** NVD for vulnerabilities, Exploit-DB for weaponization
+
+## Workflow
+1. **Reconnaissance:** Identify software versions and services
+2. **Research:** Search for related CVEs and vulnerabilities
+3. **Weaponization:** Find and adapt Proof of Concepts
+4. **Validation:** Test in controlled environment
+5. **Deployment:** Execute in live operation
+
+## Resources
+- [NVD (National Vulnerability Database)](https://nvd.nist.gov/)
+- [Exploit-DB](https://www.exploit-db.com/)
+- [CVSS Calculator](https://www.first.org/cvss/calculator/)
+
+## Scripts
+- `exploit_search_automation.py`: Automated search across multiple databases
+🐍 exploit_search_automation.py (Ejemplo):
+
+python
+#!/bin/env python3
+"""
+Red Team Vulnerability Research Automation Tool
+Quick search across multiple exploit databases
+"""
+
+import requests
+import sys
+
+def search_exploit_db(query):
+    """Search Exploit-DB for relevant exploits"""
+    print(f"[+] Searching Exploit-DB for: {query}")
+    # Implementation for automated searching
+    return f"Exploit-DB results for {query}"
+
+def search_nvd(cve_id):
+    """Search NVD for CVE details"""
+    print(f"[+] Searching NVD for: {cve_id}")
+    # Implementation for CVE lookup
+    return f"NVD details for {cve_id}"
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: python3 exploit_search.py <software> <version>")
+        sys.exit(1)
+    
+    software = sys.argv[1]
+    version = sys.argv[2] if len(sys.argv) > 2 else ""
+    
+    query = f"{software} {version}".strip()
+    print(f"[*] Starting vulnerability research for: {query}")
+    
+    # Search databases
+    exploit_results = search_exploit_db(query)
+    print(f"[*] Research complete!")
