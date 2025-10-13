@@ -3173,3 +3173,68 @@ Practice Environments
 Linux practice box: File upload vulnerabilities
 
 Windows practice box: Payload execution
+
+# Linux Privilege Escalation Framework
+
+## Overview
+Complete methodology and tools for Linux privilege escalation in Red Team operations.
+
+## Enumeration Checklist
+
+### System Information
+```bash
+hostname
+uname -a
+cat /proc/version
+cat /etc/issue
+User & Privileges
+bash
+id
+sudo -l
+cat /etc/passwd
+history
+Processes & Network
+bash
+ps aux
+env
+ifconfig
+netstat -tuln
+File System
+bash
+find / -perm -u=s -type f 2>/dev/null
+find / -writable 2>/dev/null | grep -v "/proc/"
+Common Privilege Escalation Vectors
+Kernel Exploits
+Identify kernel version: uname -a
+
+Search for exploits: searchsploit kernel-version
+
+Compile and execute
+
+Sudo Abuse
+bash
+sudo -l  # List allowed commands
+sudo [command]  # Execute with elevated privileges
+SUID Binaries
+bash
+# Find SUID files
+find / -perm -u=s -type f 2>/dev/null
+
+# Common exploitable SUIDs: find, nmap, vim, bash
+Automated Tools
+LinPEAS: Comprehensive privilege escalation scanner
+
+LinEnum: Quick system enumeration
+
+Linux Exploit Suggester: Kernel exploit identification
+
+Methodology
+System Enumeration - Gather information
+
+Automated Scanning - Run LinPEAS/LinEnum
+
+Vector Identification - Analyze results
+
+Exploitation - Execute appropriate technique
+
+Root Access - Maintain and document access
