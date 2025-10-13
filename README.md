@@ -3238,3 +3238,36 @@ Vector Identification - Analyze results
 Exploitation - Execute appropriate technique
 
 Root Access - Maintain and document access
+
+# Jr Penetration Tester Certification - TryHackMe
+
+## 🎯 Certification Achieved
+Successfully completed the Jr Penetration Tester certification path on TryHackMe, demonstrating proficiency in fundamental offensive security skills.
+
+## 🛠️ Skills Developed
+
+### Core Competencies
+- **Red Team Operations**: Basic offensive security principles
+- **Penetration Testing**: Methodical security assessment approaches
+- **Linux Security**: Privilege escalation, system exploration, command mastery
+- **Network Security**: Understanding of network-based attacks and defenses
+
+### Technical Proficiencies
+- Vulnerability research and exploitation
+- Metasploit framework and payload management
+- Linux and Windows privilege escalation techniques
+- Shell management (reverse/bind shells, stabilization)
+- Web application attacks and web shells
+- Automated and manual enumeration methods
+
+## 🚀 Key Learning Moments
+The intensive Linux privilege escalation practice session was particularly transformative, providing deep understanding of system security and multiple attack vectors.
+
+## 📈 Next Steps
+- Advance to intermediate Red Team operations
+- Explore advanced exploitation techniques
+- Prepare for industry-recognized certifications
+
+## 🔗 Connect
+- [TryHackMe Profile](https://tryhackme.com/p/[YourProfile])
+- [LinkedIn]([Your LinkedIn Profile])
