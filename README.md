@@ -3271,3 +3271,53 @@ The intensive Linux privilege escalation practice session was particularly trans
 ## 🔗 Connect
 - [TryHackMe Profile](https://tryhackme.com/p/[YourProfile])
 - [LinkedIn]([Your LinkedIn Profile])
+
+# OWASP API Security Top 10 - Red Team Perspective
+
+## Overview
+Comprehensive analysis of the top 5 OWASP API Security vulnerabilities from an offensive security viewpoint.
+
+## Critical Vulnerabilities Covered
+
+### 1. Broken Object Level Authorization (BOLA)
+- **Description**: Unauthorized access to objects by manipulating IDs
+- **Impact**: Data theft, account takeover
+- **Exploitation**: ID enumeration, parameter manipulation
+- **Red Team Use**: Horizontal/vertical privilege escalation
+
+### 2. Broken User Authentication
+- **Description**: Weak or flawed authentication mechanisms
+- **Impact**: Account compromise, unauthorized access
+- **Exploitation**: Credential stuffing, session hijacking
+- **Red Team Use**: Gaining initial access to systems
+
+### 3. Excessive Data Exposure
+- **Description**: APIs exposing more data than necessary
+- **Impact**: Information disclosure, privacy violations
+- **Exploitation**: Response analysis, parameter fuzzing
+- **Red Team Use**: Intelligence gathering, reconnaissance
+
+### 4. Lack of Resources & Rate Limiting
+- **Description**: No limits on request frequency/resources
+- **Impact**: DoS attacks, brute force attacks
+- **Exploitation**: Automated tooling, resource exhaustion
+- **Red Team Use**: Service disruption, credential attacks
+
+### 5. Broken Function Level Authorization
+- **Description**: Access to privileged functions without authorization
+- **Impact**: Privilege escalation, administrative access
+- **Exploitation**: Endpoint enumeration, role manipulation
+- **Red Team Use**: Gaining higher privileges within applications
+
+## Best Practices for Red Teams
+- Always test for BOLA in object ID parameters
+- Implement thorough authentication mechanism testing
+- Analyze API responses for excessive data exposure
+- Test rate limiting effectiveness
+- Verify function-level access controls
+
+## Tools & Techniques
+- API endpoint discovery and documentation analysis
+- Parameter fuzzing and ID enumeration
+- Authentication bypass testing
+- Rate limiting evasion techniques
