@@ -3340,3 +3340,33 @@ Comprehensive analysis of the top 5 OWASP API Security vulnerabilities from an o
 
 ### 🛠️ Applied Methodology:
 Neurodivergence-adapted approach (ADHD) through visual schemas and practical learning.
+
+(Day 9: 2025/10/19)
+
+🔐 Room Completed: Session Management - Lifecycle Security
+📚 Technical Coverage:
+Session Management Fundamentals - Complete lifecycle understanding
+
+IAAA Model - Identification, Authentication, Authorization, Accountability
+
+Cookies vs Tokens - Traditional vs modern approaches with trade-offs
+
+Lifecycle Security - Creation, tracking, expiry, and termination
+
+Practical Exploitation - Attacking insecure session management
+
+🛡️ Key Defense Principles:
+Secure Storage - For both cookies and tokens
+
+Randomness & Signing - Unpredictable values and tamper-proof mechanisms
+
+Tracking & Authorization - Action monitoring and permission verification
+
+Controlled Expiry - Time limits to prevent persistent access
+
+Effective Termination - Client and server-side invalidation
+
+💡 Unique Approach:
+Neurodivergence-adapted methodologies applied to technical analysis, enabling deep understanding and effective retention of complex security concepts.
+
+
