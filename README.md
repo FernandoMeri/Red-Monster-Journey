@@ -3369,4 +3369,36 @@ Effective Termination - Client and server-side invalidation
 💡 Unique Approach:
 Neurodivergence-adapted methodologies applied to technical analysis, enabling deep understanding and effective retention of complex security concepts.
 
+(Day 10: 2025/10/20)
 
+🔐 Room Completed: JWT Security - Web Token Vulnerability Analysis
+📚 Technical Coverage:
+JWT Fundamentals - Structure, components and authentication flow
+
+Token-Based Authentication - Modern APIs and stateless management
+
+JWT Architecture - Header, Payload, Signature (HS256, RS256, "none" algorithms)
+
+Sensitive Information Disclosure - Risks of exposed data in payload
+
+Signature Validation Errors - "none" algorithm, weak secrets, algorithm confusion
+
+Token Lifetime Management - exp field, refresh tokens, revocation
+
+Replay Attacks - Multi-application system vulnerabilities
+
+🔧 Technical Skills Demonstrated:
+Identification of poorly implemented JWT
+
+Exploitation of common validation errors
+
+Token analysis for sensitive information
+
+Privilege escalation techniques via JWT
+
+💡 Security Mindset:
+Secure design principles for token authentication
+
+Mitigation of critical JWT vulnerabilities
+
+Production environment best practices
