@@ -3402,3 +3402,38 @@ Secure design principles for token authentication
 Mitigation of critical JWT vulnerabilities
 
 Production environment best practices
+
+(Day 11: 2025/10/21)
+
+Room Completed: OAuth Vulnerabilities - Authorization Vulnerability Analysis
+📚 Understanding Acquired:
+OAuth 2.0 Fundamentals - Modern authorization model and key components
+
+Grant Flows - Authorization Code, Implicit, Client Credentials, Resource Owner
+
+Identifying OAuth Services - Detection in real web applications
+
+Critical Vulnerabilities - Insecure redirect_uri, lack of state parameter, implicit flow
+
+Evolution to OAuth 2.1 - Security improvements and standardization
+
+🔍 Exploited Vulnerabilities:
+Token theft via unvalidated redirect_uri
+
+CSRF attacks due to missing or weak state parameter
+
+Exposure of tokens in implicit flow
+
+Scope and permission management issues
+
+🛡️ Security Awareness:
+Principle of least privilege in scope management
+
+Strict validation of redirect URIs
+
+Necessary transition to OAuth 2.1 for best practices
+
+Importance of the state parameter against CSRF
+
+💡 Applied Methodology:
+Neuro-adaptive approach using visual diagrams for in-depth understanding of complex security concepts in authorization.
