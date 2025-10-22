@@ -3536,3 +3536,49 @@ Complete walkthrough and security analysis of OWASP Juice Shop vulnerabilities f
 
 ## Note
 This repository contains educational content for security professionals to understand and defend against common web application vulnerabilities.
+
+
+# Pickle Rick CTF - Complete Walkthrough
+
+## CTF Overview
+A fun yet educational Capture The Flag challenge based on Rick and Morty, focusing on web application penetration testing and system exploitation.
+
+## Attack Methodology
+
+### Phase 1: Reconnaissance
+- **Port Scanning**: Nmap enumeration to discover open ports and services
+- **Directory Bruteforcing**: Gobuster/Dirb for hidden paths and files
+- **Service Analysis**: Web server and application technology identification
+
+### Phase 2: Initial Access
+- **Command Injection**: Exploitation of web parameters for RCE
+- **Authentication Bypass**: Circumventing login mechanisms
+- **File Discovery**: Locating critical configuration files and flags
+
+### Phase 3: Post-Exploitation
+- **System Enumeration**: Exploring the underlying Linux system
+- **Privilege Escalation**: Gaining higher-level access
+- **Flag Collection**: Systematic retrieval of all challenge flags
+
+## Key Vulnerabilities Exploited
+1. **Web Server Misconfigurations**
+2. **Insecure Direct Object References**
+3. **Command Injection in Web Parameters**
+4. **Information Disclosure in Error Messages**
+5. **Weak Access Controls**
+
+## Tools Used
+- **Nmap**: Network and service discovery
+- **Gobuster**: Directory and file enumeration
+- **Burp Suite**: Web proxy and attack tool
+- **cURL**: Command-line HTTP requests
+- **Linux Commands**: System navigation and exploitation
+
+## Learning Objectives
+- Practical web application penetration testing
+- Chain exploitation of multiple vulnerabilities
+- Linux system enumeration and privilege escalation
+- CTF methodology and problem-solving approach
+
+## Note
+This walkthrough demonstrates offensive security techniques for educational purposes to help improve defensive strategies.
