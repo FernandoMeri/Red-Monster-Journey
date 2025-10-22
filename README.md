@@ -3494,3 +3494,45 @@ Enumeration and lateral movement in compromised environments
 
 💡 Learning Context:
 Practical exercise consolidating theoretical concepts of authentication vulnerabilities and system access.
+
+# OWASP Juice Shop - Challenge Solutions & Methodology
+
+## Overview
+Complete walkthrough and security analysis of OWASP Juice Shop vulnerabilities from a Red Team perspective.
+
+## Vulnerabilities Exploited
+
+### SQL Injection Attacks
+- Login bypass through SQL injection in authentication forms
+- Database enumeration through error-based SQLi
+- Data extraction via UNION-based attacks
+
+### Cross-Site Scripting (XSS)
+- Stored XSS in user feedback forms
+- Reflected XSS in search functionality
+- DOM-based XSS through client-side manipulation
+
+### Authentication Bypass
+- Admin privilege escalation through session manipulation
+- JWT token tampering and forgery
+- Password reset functionality abuse
+
+### Security Misconfigurations
+- Directory traversal and information disclosure
+- API endpoint enumeration and abuse
+- Default credential exploitation
+
+## Tools & Techniques
+- **Burp Suite**: Request interception, repeater, intruder
+- **Browser DevTools**: Client-side analysis and debugging
+- **Custom Scripts**: Automation of repetitive attacks
+- **Manual Testing**: Methodical approach to vulnerability discovery
+
+## Learning Outcomes
+- Practical understanding of OWASP Top 10 vulnerabilities
+- Real-world application of web application penetration testing
+- Development of systematic testing methodology
+- Enhanced skills in vulnerability exploitation and proof-of-concept development
+
+## Note
+This repository contains educational content for security professionals to understand and defend against common web application vulnerabilities.
