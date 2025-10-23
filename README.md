@@ -3654,3 +3654,38 @@ Proactive approach to modern API security
 
 💡 Neuroadapted Approach:
 Transformation of complex NoSQL security concepts into visual schemas and cognitive analogies for effective learning.
+
+🚀 Room Completed: XXE Injection - XML Processing Attacks
+📚 Technical Coverage:
+XML and Entities Fundamentals - DTDs, internal/external entities, parameter entities
+
+XXE Exploitation Techniques - In-Band, Out-of-Band (OOB), Blind XXE
+
+XXE + SSRF Combination - Internal network access and cloud metadata
+
+Advanced Attack Vectors - File exfiltration, internal port scanning, RCE
+
+Effective Mitigation - Secure XML parser configuration
+
+🔧 Technical Skills Demonstrated:
+Identification of XXE vulnerable endpoints
+
+Malicious XML payload construction for different scenarios
+
+OOB exfiltration techniques via DNS and HTTP
+
+Internal service exploitation via SSRF + XXE
+
+Secure XML parser configuration in multiple languages
+
+🛡️ Security Mindset:
+Understanding risks in XML processing
+
+Defense-in-depth strategies against XXE
+
+SSRF attack detection and prevention via XML
+
+Hardening of XML document processing applications
+
+💡 Neuroadapted Approach:
+Transformation of complex XML processing concepts into visual schemas and cognitive analogies for effective learning.
