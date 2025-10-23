@@ -3582,3 +3582,40 @@ A fun yet educational Capture The Flag challenge based on Rick and Morty, focusi
 
 ## Note
 This walkthrough demonstrates offensive security techniques for educational purposes to help improve defensive strategies.
+
+(Day 13: 2025/10/23)
+
+🔐 Room Completed: Advanced SQL Injection - Advanced Exploitation Techniques
+📚 Technical Coverage:
+Second-Order SQL Injection - Delayed attacks and stored execution
+
+Out-of-Band SQLi (OOB) - Data exfiltration via DNS and HTTP
+
+Advanced Filter Evasion - Encoding, inline comments, case mixing
+
+HTTP Headers and Cookies Injection - Non-traditional vectors
+
+SQLMap Automation - Tamper scripts and WAF bypass techniques
+
+🔧 Technical Skills Demonstrated:
+Identification and exploitation of complex SQLi vulnerabilities
+
+Data exfiltration techniques in restricted environments
+
+Evasion strategy development for custom filters
+
+Advanced usage of automation tools (SQLMap)
+
+Comprehensive testing methodology for modern web applications
+
+🛡️ Security Mindset:
+Deep understanding of advanced attack vectors
+
+Mitigation strategies and secure coding practices
+
+Defense-in-depth approach for web applications
+
+Balance between manual testing and automation
+
+💡 Neuroadapted Approach:
+Application of visual schemas and structured learning to master complex offensive security concepts.
