@@ -3619,3 +3619,38 @@ Balance between manual testing and automation
 
 💡 Neuroadapted Approach:
 Application of visual schemas and structured learning to master complex offensive security concepts.
+
+🚀 Room Completed: NoSQL Injection - Modern Database Security
+📚 Technical Coverage:
+NoSQL Fundamentals - MongoDB, document-oriented architecture
+
+NoSQL Injection Syntax - Operators $ne, $regex, $where, $or
+
+Advanced Attack Vectors - Login bypass, data extraction, code execution
+
+Exploitation Techniques - JSON/BSON object manipulation
+
+Effective Mitigation - Parameterized queries and strict validation
+
+🔧 Technical Skills Demonstrated:
+Identification of NoSQL Injection vulnerable endpoints
+
+Exploitation of REST/GraphQL APIs through JSON manipulation
+
+MongoDB operators for authentication bypass
+
+Data extraction techniques in NoSQL environments
+
+Defense strategies for modern applications
+
+🛡️ Security Mindset:
+Understanding risks in non-relational databases
+
+Mitigation through parameterization and type validation
+
+Detection of insecure deserialization in JSON objects
+
+Proactive approach to modern API security
+
+💡 Neuroadapted Approach:
+Transformation of complex NoSQL security concepts into visual schemas and cognitive analogies for effective learning.
