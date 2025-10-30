@@ -3689,3 +3689,51 @@ Hardening of XML document processing applications
 
 💡 Neuroadapted Approach:
 Transformation of complex XML processing concepts into visual schemas and cognitive analogies for effective learning.
+
+(Day 14: 2025/10/30)
+
+🧪 TryHackMe: SSTI Room Walkthrough
+Overview
+This repository documents my walkthrough and exploitation of the Server-Side Template Injection (SSTI) Room on TryHackMe, including the Extra-Mile Challenge. The room focuses on identifying and exploiting SSTI vulnerabilities in popular template engines such as Jinja2, Smarty, and Pug.
+
+🔍 What I Explored
+Identification of SSTI vulnerabilities across multiple template engines
+
+Payload crafting for Jinja2, Smarty, and Pug
+
+Exploiting SSTI to achieve Remote Code Execution (RCE)
+
+Understanding template rendering behavior and injection points
+
+Mitigation strategies for SSTI in real-world applications
+
+🧠 Key Learnings
+How to detect whether a field is vulnerable to SSTI (e.g., {{7*7}} → 49)
+
+How to escalate from basic injection to full RCE using Jinja2 internals
+
+How to use Burp Suite and URL encoding to bypass input filters
+
+How to identify execution points in form builders and admin panels
+
+How to audit template logic and sanitize user input to prevent SSTI
+
+💣 Example Payload (Jinja2 RCE)
+jinja2
+{{''.__class__.__mro__[1].__subclasses__()[157].__init__.__globals__['__builtins__']['__import__']('os').popen('cat /var/www/hidden.txt').read()}}
+Used to read sensitive files from the server once SSTI was confirmed.
+
+🧩 Extra-Mile Challenge
+Target: Form Tools 3.1.1 admin panel
+
+Vulnerability: SSTI in form field labels or default values
+
+Tools used: Burp Suite (intercept & modify requests), URL encoding
+
+Outcome: Successfully extracted the flag from /var/www/hidden.txt
+
+🛡️ Mitigation Summary
+Engine	Mitigation Techniques
+Jinja2	Sandbox environment, input sanitization, template audits
+Pug/Jade	Avoid !{}, validate inputs, secure config
+Smarty	Disable {php}, use safe modifiers, periodic reviews
