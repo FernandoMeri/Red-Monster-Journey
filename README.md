@@ -3737,3 +3737,53 @@ Engine	Mitigation Techniques
 Jinja2	Sandbox environment, input sanitization, template audits
 Pug/Jade	Avoid !{}, validate inputs, secure config
 Smarty	Disable {php}, use safe modifiers, periodic reviews
+
+# 🧠 LDAP Injection – TryHackMe Room
+
+## 📘 Description
+
+This Room explores the vulnerability of **LDAP injection**, a technique that allows you to manipulate queries to directory services such as **Active Directory** and **OpenLDAP**. Through practical exercises, you will learn how to exploit poorly constructed LDAP filters to bypass authentication, extract data, and automate blind attacks.
+
+---
+
+## 🧩 Content covered
+
+### 🔹 LDAP fundamentals
+- Tree-like hierarchical structure: `dc=`, `ou=`, `cn=`
+- Objects with DN, RDN, and attributes (`uid`, `mail`, `objectClass`)
+- LDIF format for importing/exporting entries
+
+### 🔹 LDAP queries
+- Syntax: `(base DN) (scope) (filter) (attributes)`
+- Filters with operators: `=`, `*`, `|`, `&`, `!`
+- Example: `(&(objectClass=user)(cn=J*))`
+
+### 🔹 LDAP injection
+- Direct insertion of user input into filters
+- Techniques:
+  - Tautology: `uid=*)(|(&`
+  - Wildcards: `uid=*`, `userPassword=*`
+- Vulnerable example:
+```php
+  $filter = “(&(uid=$username)(userPassword=$password))”;
+
+🔹 LDAP blind injection
+Inference by behavior (messages, errors, times)
+
+Boolean payloads to reconstruct UID character by character
+Example:
+username=a*)(|(&  
+password=pwd)
+
+🔹 Automation with Python
+Script that forces characters and detects success via HTML
+
+Uses requests, BeautifulSoup, string
+
+Detects <p style="color: green;"> as an indicator of success
+
+python
+data = {‘username’: f'{successful_chars}{char}*)(|(&‘,'password’: ‘pwd)’}
+
+🧠 Personal reflection
+This Room allowed me to consolidate key LDAP concepts and apply offensive techniques with precision. It was also an exercise in cognitive management: I detected and avoided perfectionism loops, prioritized the ultimate goal, and reinforced my self-management skills in intensive learning environments.
