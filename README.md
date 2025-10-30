@@ -3787,3 +3787,58 @@ data = {‘username’: f'{successful_chars}{char}*)(|(&‘,'password’: ‘pwd
 
 🧠 Personal reflection
 This Room allowed me to consolidate key LDAP concepts and apply offensive techniques with precision. It was also an exercise in cognitive management: I detected and avoided perfectionism loops, prioritized the ultimate goal, and reinforced my self-management skills in intensive learning environments.
+
+# TryHackMe Room: ORM Injection
+
+## 🧠 Overview
+
+This room explores how insecure implementations of Object-Relational Mappers (ORMs) can be exploited to manipulate SQL queries and gain unauthorized access to sensitive data. The vulnerable environment is based on Laravel (PHP) and its ORM, Eloquent.
+
+---
+
+## 🎯 Objectives Achieved
+
+- Understand the role of ORMs in modern web development
+- Identify injection vectors in Laravel using methods like `whereRaw()` and `DB::raw()`
+- Exploit vulnerable endpoints using crafted payloads:
+  - `1' OR '1'='1` → bypass authentication filters
+  - `sort=name->"%27)) LIMIT 10#` → break `ORDER BY` clause and override query limits
+- Analyze SQL errors (`SQLSTATE[42000]`) to confirm injection success
+- Compare vulnerable vs secure implementations (`whereRaw()` vs `where()`)
+- Apply secure coding practices:
+  - Input validation
+  - Parameterized queries
+  - Whitelisting and sanitization
+
+---
+
+## 🧪 Techniques Used
+
+- Manual code review
+- Input-based error testing
+- URL parameter manipulation
+- Cookie and header inspection
+- Behavioral analysis of ORM query construction
+
+---
+
+## 🔐 Mitigation Strategies
+
+- Replace raw query methods with parameterized ones (`where()` instead of `whereRaw()`)
+- Validate and sanitize all user inputs
+- Whitelist expected values (e.g., for sorting parameters)
+- Keep ORM libraries updated and properly configured
+
+---
+
+## 💻 Key Payloads
+
+```plaintext
+1' OR '1'='1
+sort=name->"%27)) LIMIT 10#
+
+Encoded URL example:
+https://<target>/query_users?sort=name-%3E%22%27))%20LIMIT%2010%23
+
+✅ Status
+✔️ Room completed 📁 Part of the Injection module in the Offensive Cybersecurity certification 🔍 Focus: Red Team / Web Pentesting
