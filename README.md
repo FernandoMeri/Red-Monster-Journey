@@ -3889,3 +3889,28 @@ Minimal use of Burp Suite (AttackBox performance workaround)
 
 ✅ Status
 ✔️ Room completed 📁 Part of the injection module in the Offensive Cybersecurity certification 🔍 Focus: Red Team / Web Pentesting
+
+(Day 15: 2025/10/31)
+
+# TryHackMe – Room: Insecure Deserialization
+
+## 🔍 Description
+This Room explores the vulnerability of insecure deserialization in web applications, focusing on Laravel and exploitation using PHPGGC.
+
+## 🧠 Techniques applied
+- Payload generation with `phpggc Laravel/RCE3 system ‘uname -r’`
+- Payload encryption with APP_KEY via `/cve.php`
+- Remote execution using `X-XSRF-TOKEN` header
+- Error validation (`MAC is invalid`, incorrect paths, inconsistent environment)
+
+## 🛠️ Result
+- Command executed: `uname -r`
+- Response obtained: `5.15.0-1075-aws` (verified via external walkthrough)
+
+## 📌 Reflection
+The environment presented multiple technical and emotional roadblocks. The final solution was achieved through cross-validation and strategic searching. Documenting this process is part of offensive learning.
+
+## 🧠 For my toolkit
+- Laravel/RCE3 as a useful string for future automations
+- Management of APP_KEY and CSRF tokens as an input vector
+- Emotional documentation as part of the technical process
