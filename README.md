@@ -3951,3 +3951,38 @@ Network and server configuration hardening
 
 💡 Neuroadapted Approach:
 Application of visual and structured schemas to master complex offensive and defensive security concepts.
+
+🚀 Room Completed: File Inclusion & Path Traversal - File Manipulation Attacks
+📚 Technical Coverage:
+File Inclusion Vulnerabilities - Local (LFI) and Remote (RFI) Inclusion
+
+Path Traversal Techniques - Directory navigation attacks
+
+PHP Wrappers Exploitation - php://filter, data://, expect://
+
+LFI to RCE Conversion - Session files, log poisoning
+
+Obfuscation Techniques - Filter bypass and encoding methods
+
+🔧 Technical Skills Demonstrated:
+Identification of file inclusion vulnerable parameters
+
+Path Traversal exploitation for sensitive file reading
+
+LFI to RCE conversion through multiple vectors
+
+PHP Wrappers usage for restriction bypass
+
+Obfuscation techniques to evade security filters
+
+🛡️ Security Mindset:
+Understanding risks in dynamic file inclusion
+
+Mitigation strategies through whitelisting and sanitization
+
+Secure configuration of web servers and applications
+
+Detection and prevention of path manipulation attacks
+
+💡 Neuroadapted Approach:
+Application of structured visual schemas to master complex exploitation and defense techniques in web security.
