@@ -4022,3 +4022,38 @@ Detection and prevention of vulnerabilities in third-party libraries
 💡 Neuroadapted Approach:
 Application of structured visual schemas to master complex JavaScript programming concepts and modern web application security.
 
+🚀 Room Completed: Intruder - Server and Web Application Exploitation
+📚 Technical Coverage:
+Advanced Intrusion Techniques - Comprehensive web application exploitation
+
+Pentesting Methodology - Enumeration, exploitation, post-exploitation
+
+Authentication Bypass - Techniques to evade access controls
+
+Lateral Movement - Navigation and escalation in compromised environments
+
+Flag Extraction - Evidence gathering in CTF environments
+
+🔧 Technical Skills Demonstrated:
+Identification and exploitation of critical vulnerabilities
+
+Application of intelligent brute force techniques
+
+Parameter and endpoint manipulation
+
+Session management and access maintenance
+
+Evasion and obfuscation techniques
+
+🛡️ Security Mindset:
+Understanding attack vectors in real-world applications
+
+Defensive strategies based on offensive scenarios
+
+Analysis of insecure configurations in web servers
+
+Best practices for application hardening
+
+💡 Neuroadapted Approach:
+Application of structured approaches and visual schemas to efficiently solve complex offensive security challenges.
+
