@@ -3914,3 +3914,40 @@ The environment presented multiple technical and emotional roadblocks. The final
 - Laravel/RCE3 as a useful string for future automations
 - Management of APP_KEY and CSRF tokens as an input vector
 - Emotional documentation as part of the technical process
+
+(Day 16: 2025/11/02)
+
+🚀 Room Completed: SSRF (Server-Side Request Forgery) - Server-Side Request Attacks
+📚 Technical Coverage:
+SSRF Fundamentals - Attack mechanisms and vectors
+
+SSRF Attack Anatomy - Components and exploitation flow
+
+SSRF Types - Basic, Blind, Out-of-Band (OOB)
+
+Attack Scenarios - Local server, internal networks, cloud metadata
+
+Mitigation Techniques - Whitelisting, validation, network segregation
+
+🔧 Technical Skills Demonstrated:
+Identification of SSRF vulnerable endpoints
+
+Internal service and cloud metadata exploitation
+
+Blind and semi-blind SSRF techniques
+
+Filter bypass and network restriction evasion
+
+Defense-in-depth strategies
+
+🛡️ Security Mindset:
+Understanding risks in server-side requests
+
+Techniques to prevent SSRF attacks in applications
+
+Detection and monitoring of exploitation attempts
+
+Network and server configuration hardening
+
+💡 Neuroadapted Approach:
+Application of visual and structured schemas to master complex offensive and defensive security concepts.
